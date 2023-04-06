@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
-import { Layout, Input, Typography, Spin, Pagination, Col, Row } from "antd";
+import {
+  Layout,
+  Input,
+  Typography,
+  Spin,
+  Pagination,
+  Col,
+  Row,
+  Space,
+} from "antd";
 import axios from "axios";
 import PollCard from "../components/PollCard";
 
@@ -28,7 +37,6 @@ const HomePage = () => {
   const [totalPolls, setTotalPolls] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const apiUrl = process.env.REACT_APP_API_URL;
-  console.log(process.env);
   useEffect(() => {
     setLoading(true);
 
@@ -44,7 +52,7 @@ const HomePage = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [currentPage]);
+  }, [apiUrl, currentPage]);
 
   const handleSearch = () => {
     setLoading(true);
@@ -101,13 +109,17 @@ const HomePage = () => {
               <Spin size="large" />
             </div>
           ) : (
-            <Row gutter={[16, 16]}>
-              {polls.map((poll) => (
-                <Col span={12} key={poll.id}>
-                  <PollCard poll={poll} />
-                </Col>
-              ))}
-            </Row>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Space style={{ width: "70%" }}>
+                <Row gutter={[16, 16]}>
+                  {polls.map((poll) => (
+                    <Col span={12} key={poll.id}>
+                      <PollCard poll={poll} />
+                    </Col>
+                  ))}
+                </Row>
+              </Space>
+            </div>
           )}
         </div>
       </Content>
