@@ -1,31 +1,42 @@
-# Create React App
+# Votify App
+## Introduction
+###  This repository contains the source code for a react app that provides access to a voting system's various features. The website can be accessed at  [This Link](https://polls-app-alaaamady.vercel.app/)
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+### Installation
+1. Clone the repository
 
-## Deploy Your Own
+    git clone https://github.com/alaaamady/polls-app.git
 
-Deploy your own Create React App project with Vercel.
+2. Install dependencies
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+     yarn
 
-_Live Example: https://create-react-template.vercel.app/_
+3. Create a `.env` with the following variable
 
-## Available Scripts
+    REACT_APP_API_URL=https://polls-api-production.up.railway.app
+ 
+ 
 
-In the project directory, you can run:
+or you can use the local API URL
 
-### `npm start`
+4. Start the app
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    yarn start
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+## Design Decisions
 
-### `npm test`
+ - The `Ant Design` system was used as building blocks for the app's components for it's full fledged library and wide range of functionality
+ - `Typescript` was used for a type safe development
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project structure
+The app is divides into two separate entities:
 
-### `npm run build`
+ - /pages
+	 - Includes components for the app's router pages, in this case the HomePage, and a NotFoundPage for unregistered routes
+ - /components
+	 - Includes reusable element that can be reused in both different components and pages, such as `PollCardChoices.tsx` and `PollCardModal.tsx`
 
-Builds the app for production to the `build` folder.
+## To be improvised
 
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+ - [ ] Create `jest` test cases for components
+ - [ ]  Create a `theme.ts` to unify the apps design
