@@ -1,6 +1,8 @@
 # Votify App
 ## Introduction
-###  This repository contains the source code for a react app that provides access to a voting system's various features. The website can be accessed at  [This Link](https://polls-app-alaaamady.vercel.app/)
+
+### This repository contains the source code for a React app for a web application called Votify, A website for shared polls. You can visit the website through [This Link](https://polls-app-alaaamady.vercel.app/)
+
 
 ### Installation
 1. Clone the repository
@@ -11,13 +13,12 @@
 
      yarn
 
-3. Create a `.env` with the following variable
+3. Create a `.env` with the following variable:
 
-    REACT_APP_API_URL=https://polls-api-production.up.railway.app
+    REACT_APP_API_URL=
  
  
 
-or you can use the local API URL
 
 4. Start the app
 
@@ -36,7 +37,7 @@ The app is divides into two separate entities:
  - /components
 	 - Includes reusable element that can be reused in both different components and pages, such as `PollCardChoices.tsx` and `PollCardModal.tsx`
 
-## To be improvised
+## To be improved
 
  - [ ] Create `jest` test cases for components
  - [ ]  Create a `theme.ts` to unify the apps design
