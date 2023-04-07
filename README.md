@@ -25,7 +25,7 @@ or you can use the local API URL
 
 ## Design Decisions
 
- - The `Ant Design` system was used as building blocks for the app's components for it's full fledged library and wide range of functionality
+ - The `Ant Design` system was used as building blocks for the app's components for it's fully fledged library and wide range of functionality
  - `Typescript` was used for a type safe development
 
 ## Project structure
