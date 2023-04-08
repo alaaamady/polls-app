@@ -1,6 +1,7 @@
 import { Avatar, Button, Space } from "antd";
 import React from "react";
 import { Poll } from "../../types/poll";
+import { UserOutlined } from "@ant-design/icons";
 
 interface PollCardFooterProps {
   poll: Poll;
@@ -14,12 +15,13 @@ const PollCardFooter: React.FC<PollCardFooterProps> = ({
   const { total_vote_count, expired, expiry_date } = poll;
   return (
     <>
-      <Space style={{ margin: 10 }}>
+      <Space style={{ margin: 10, justifyContent: "space-between" }}>
         <Avatar.Group maxCount={3}>
           {[...Array(total_vote_count)].map((_, index) => (
             <Avatar
               key={index}
               style={{ backgroundColor: "#539165", cursor: "pointer" }}
+              icon={<UserOutlined />}
             >
               U
             </Avatar>

@@ -41,7 +41,20 @@ const VoteModal = ({
     } catch (error) {
       const responseError = error as AxiosError<{ message: string }>;
       if (responseError.response && responseError.response.status === 400) {
-        notification.error({ message: "You have already voted on this poll" });
+        let errorObject: {
+          [key: string]: any;
+        } = responseError.response.data;
+        let errorMessages: any[] = [];
+
+        for (let key in errorObject) {
+          if (errorObject.hasOwnProperty(key)) {
+            errorMessages = errorMessages.concat(errorObject[key]);
+          }
+        }
+
+        console.log(errorMessages);
+        console.log(responseError.response.data);
+        notification.error({ message: errorMessages[0] });
       } else {
         notification.error({
           message: "Something went wrong. Please try again later.",
@@ -64,8 +77,18 @@ const VoteModal = ({
       const responseError = error as AxiosError<{ message: string }>;
 
       if (responseError.response && responseError.response.status === 400) {
+        let errorObject: {
+          [key: string]: any;
+        } = responseError.response.data;
+        let errorMessages: any[] = [];
+
+        for (let key in errorObject) {
+          if (errorObject.hasOwnProperty(key)) {
+            errorMessages = errorMessages.concat(errorObject[key]);
+          }
+        }
         notification.error({
-          message: "Invalid OTP, please use the one sent to you by mail.",
+          message: errorMessages[0],
         });
       } else if (
         responseError.response &&
