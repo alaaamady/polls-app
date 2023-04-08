@@ -13,3 +13,7 @@
     float: right;
     margin: 16px 0 16px 24px;
   }
+
+  body {
+      margin: 0;
+  }

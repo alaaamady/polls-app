@@ -19,7 +19,7 @@ const PollCardFooter: React.FC<PollCardFooterProps> = ({
           {[...Array(total_vote_count)].map((_, index) => (
             <Avatar
               key={index}
-              style={{ backgroundColor: "#87d068", cursor: "pointer" }}
+              style={{ backgroundColor: "#539165", cursor: "pointer" }}
             >
               U
             </Avatar>
@@ -37,7 +37,7 @@ const PollCardFooter: React.FC<PollCardFooterProps> = ({
             days remaining
           </span>
         )}
-        <Button onClick={onVoteButtonClick} disabled={expired}>
+        <Button onClick={onVoteButtonClick} disabled={expired} type="primary">
           Vote
         </Button>
       </Space>

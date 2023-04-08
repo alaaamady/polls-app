@@ -14,25 +14,28 @@ const PollCardChoices: React.FC<PollCardChoicesProps> = ({
   onChoiceSelect,
 }) => {
   return (
-    <Radio.Group
-      disabled={expired}
-      onChange={(e) => onChoiceSelect(e.target.value)}
-    >
-      <Space direction="vertical">
-        {choices_with_vote_percentage.map((choice) => (
-          <Radio key={choice.id} value={choice.id}>
-            {choice.choice_text}
-            {expired && (
-              <Progress
-                percent={choice.vote_percentage}
-                strokeColor="#159895"
-                strokeWidth={10}
-              />
-            )}
-          </Radio>
-        ))}
-      </Space>
-    </Radio.Group>
+    <>
+      <Radio.Group
+        disabled={expired}
+        onChange={(e) => onChoiceSelect(e.target.value)}
+        style={{ margin: "5%" }}
+      >
+        <Space direction="vertical">
+          {choices_with_vote_percentage.map((choice) => (
+            <Radio key={choice.id} value={choice.id}>
+              {choice.choice_text}
+              {expired && (
+                <Progress
+                  percent={Number(choice.vote_percentage.toFixed(2))}
+                  strokeColor="#159895"
+                  strokeWidth={10}
+                />
+              )}
+            </Radio>
+          ))}
+        </Space>
+      </Radio.Group>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Typography } from "antd";
 import { useState } from "react";
 import PollCardChoices from "./PollCardChoices";
 import PollCardFooter from "./PollCardFooter";
@@ -63,12 +63,14 @@ const PollCard = ({ poll }: Props) => {
         )
       }
     >
-      <PollCardChoices
-        onChoiceSelect={setSelectedChoiceId}
-        expired={expired}
-        choices_with_vote_percentage={choices_with_vote_percentage}
-      />
-
+      <Typography>{description}</Typography>
+      {poll.expired && (
+        <PollCardChoices
+          choices_with_vote_percentage={choices_with_vote_percentage}
+          expired={expired}
+          onChoiceSelect={setSelectedChoiceId}
+        />
+      )}
       <VoteModal
         choices_with_vote_percentage={choices_with_vote_percentage}
         description={description}

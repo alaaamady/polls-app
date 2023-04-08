@@ -57,6 +57,8 @@ const VoteModal = ({
         uuid,
       });
       notification.success({ message: "Thank you for voting!" });
+      setEmail("");
+      setUUID("");
       setModalVisible(false);
     } catch (error) {
       const responseError = error as AxiosError<{ message: string }>;
@@ -80,8 +82,13 @@ const VoteModal = ({
   return (
     <Modal
       title="Vote"
-      visible={visible}
-      onCancel={() => setModalVisible(false)}
+      open={visible}
+      onCancel={() => {
+        setModalVisible(false);
+        setEmail("");
+        setUUID("");
+        setUUID("");
+      }}
       footer={[
         <Button key="back" onClick={() => setModalVisible(false)}>
           Cancel
@@ -103,7 +110,7 @@ const VoteModal = ({
         onChoiceSelect={setSelectedChoiceId}
       />
 
-      <Form>
+      <Form style={{ margin: "5%" }}>
         <Form.Item label="Email">
           <Input
             placeholder="Enter your email"

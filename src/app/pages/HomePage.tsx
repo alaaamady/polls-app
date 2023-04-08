@@ -36,6 +36,7 @@ const HomePage = () => {
   const [polls, setPolls] = useState<Poll[]>([]);
   const [totalPolls, setTotalPolls] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+
   const apiUrl = process.env.REACT_APP_API_URL;
   useEffect(() => {
     setLoading(true);
@@ -82,7 +83,7 @@ const HomePage = () => {
         </Title>
       </Header>
 
-      <Content>
+      <Content style={{ backgroundColor: "white" }}>
         <Title level={1} style={{ textAlign: "center", fontWeight: "normal" }}>
           Cast your vote and make your voice heard 📢
         </Title>
@@ -94,9 +95,11 @@ const HomePage = () => {
             style={{
               borderRadius: "20px",
               borderColor: "#149c94",
-              width: "70%",
+              height: "10%",
+              width: "50%",
               border: "5px",
             }}
+            size="large"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onPressEnter={handleSearch}
@@ -111,9 +114,9 @@ const HomePage = () => {
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Space style={{ width: "70%" }}>
-                <Row gutter={[16, 16]}>
+                <Row gutter={[24, 24]}>
                   {polls.map((poll) => (
-                    <Col span={12} key={poll.id}>
+                    <Col xs={24} xl={12} key={poll.id}>
                       <PollCard poll={poll} />
                     </Col>
                   ))}
